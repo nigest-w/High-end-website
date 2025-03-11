@@ -29,8 +29,8 @@ export default function Footer() {
               </Link>
             </li>
             <li>
-              <Link href="/services" className="hover:text-blue-400">
-                Services
+              <Link href="/service" className="hover:text-blue-400">
+                Service
               </Link>
             </li>
             <li>
@@ -45,7 +45,7 @@ export default function Footer() {
         <div className="flex flex-col items-center md:items-start text-center md:text-left">
           <h4 className="text-lg font-semibold mb-2">Contact Us</h4>
           <p className="text-gray-300 flex items-center">
-            <MapPin className="mr-2 h-4 w-4" /> Addis Ababa, Ethiopia
+            <MapPin className="mr-2 h-4 w-4" /> Kirkos Sub city, Addis Ababa, Ethiopia
           </p>
           <p className="text-gray-300 flex items-center mt-1">
             <Phone className="mr-2 h-4 w-4" /> +251 965 648 973
