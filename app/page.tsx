@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { FaChartBar, FaLaptopMedical, FaUsers, FaUserMd, FaArrowUp } from "react-icons/fa";
 import { Mail, MapPin, Phone } from "lucide-react";
+import Image from 'next/image';
 
 export default function Home() {
   const text = "Welcome to High-end Health Solutions";
@@ -184,7 +185,13 @@ export default function Home() {
       <footer className="bg-gray-900 text-white py-6">
         <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="flex flex-col items-center md:items-start text-center md:text-left">
-            <img src="/image/logo.png" alt="Company Logo" className="w-20 mb-3" />
+          <Image 
+  src="/image/highendlogo.png" 
+  alt="Company Logo" 
+  className="w-20 mb-3"
+  width={80}
+  height={80}
+/>
             <p className="text-gray-300 text-sm max-w-xs">
               High-end Health Solutions Consulting PLC provides expert public health consulting, research, and professional training.
             </p>
@@ -216,6 +223,15 @@ export default function Home() {
             </p>
           </div>
         </div>
+         {/* Go to Top Button */}
+         {showGoToTop && (
+          <button
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            className="fixed bottom-6 right-6 bg-blue-600 text-white p-3 rounded-full shadow-lg hover:bg-blue-500 transition"
+          >
+            <FaArrowUp className="text-xl" />
+          </button>
+        )}
       </footer>
     </div>
   );

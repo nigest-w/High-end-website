@@ -12,10 +12,10 @@ export default function Navbar() {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div>
-            <Link href="/" className="text-2xl font-bold text-blue-600">
-              High-end Health Solutions
-            </Link>
-          </div>
+  <Link href="/">
+    <img src="/image/highendlogo.png" alt="High-end Health Solutions Logo" className="h-12 w-auto" />
+  </Link>
+</div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex space-x-8 items-center py-2">
@@ -49,7 +49,7 @@ export default function Navbar() {
           <div className="md:hidden bg-white py-2">
             <Link href="/" className="block px-4 py-2 text-gray-700 hover:text-blue-600">Home</Link>
             <Link href="/about" className="block px-4 py-2 text-gray-700 hover:text-blue-600">About</Link>
-            <Link href="/services" className="block px-4 py-2 text-gray-700 hover:text-blue-600">Services</Link>
+            <Link href="/service" className="block px-4 py-2 text-gray-700 hover:text-blue-600">Service</Link>
             <Link href="/contact" className="block px-4 py-2 text-gray-700 hover:text-blue-600">Contact</Link>
             
             {/* Mobile Get Training Button */}

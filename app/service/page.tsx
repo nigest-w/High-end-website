@@ -82,7 +82,7 @@ export default function ServicesPage() {
       title: "Public Health Data Analysis",
       description:
         "Our team performs sophisticated quantitative and qualitative public health data analysis. We employ advanced statistical methods, epidemiological techniques, and mixed-methods approaches to analyze health data. Our analysis includes descriptive statistics, inferential analysis, spatial analysis, and thematic analysis of qualitative data to generate actionable insights.",
-      image: "/image/healthdata analysis.jpg",
+      image: "/image/healthdata-analysis.jpg",
     },
     {
       title: "Technical Writing",
@@ -178,7 +178,6 @@ export default function ServicesPage() {
 
               
               <div className="p-6 flex flex-col flex-grow border-t border-gray-200">
-                <div className="mb-4">{service.icon}</div>
                 <h3 className="text-xl font-semibold text-blue-800 mb-3">{service.title}</h3>
                 <p className="text-gray-600 flex-grow">{service.description}</p>
               </div>

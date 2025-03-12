@@ -7,8 +7,8 @@ export default function Footer() {
       <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-6">
         {/* Company Info */}
         <div className="flex flex-col items-center md:items-start text-center md:text-left">
-          <img src="/image/logo.png" alt="Company Logo" className="w-20 mb-3" />
-          <p className="text-gray-300 text-sm max-w-xs">
+          <img src="/image/highendlogo.png" alt="Company Logo" className="w-20 mb-3" />
+          <p>
             High-end Health Solutions Consulting PLC provides expert public health consulting, research, and
             professional training.
           </p>
