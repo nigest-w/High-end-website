@@ -13,16 +13,16 @@ export default function ContactUs() {
   const [loading, setLoading] = useState(false);
 
   // Handle input changes
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
+  
 
   // Handle form submission
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
-
     try {
       const response = await fetch("/api/sendEmail", {
         method: "POST",
@@ -73,7 +73,7 @@ export default function ContactUs() {
               value={formData.message}
               onChange={handleChange}
               className="w-full p-3 border border-gray-300 rounded-lg"
-              rows="5"
+              rows={5}
               required
               disabled={loading}
             ></textarea>

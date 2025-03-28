@@ -3,6 +3,7 @@ import { motion } from "framer-motion"
 import { FaHandPointDown } from "react-icons/fa" // Import pointing finger icon
 import Footer from "../component/Footer";
 import { BookOpen, Users } from "lucide-react";
+import Image from "next/image";
 
 export default function AboutUs() {
   return (
@@ -52,11 +53,14 @@ export default function AboutUs() {
           {/* Background History */}
           <div className="flex flex-col md:flex-row items-center md:space-x-20">
             {/* Image */}
-            <img
-              src="/image/history.jpg"
-              alt="Background History"
-              className="w-96 h-96 object-cover rounded-full border-4 shadow-lg"
-            />
+            <Image
+  src="/image/history.jpg"
+  alt="Background History"
+  width={384} 
+  height={384}
+  className="w-96 h-96 object-cover rounded-full border-4 shadow-lg"
+/>
+
             {/* Text */}
             <div className="mt-6 md:mt-0 text-justify flex-1 max-w-lg">
               <h3 className="text-2xl font-semibold text-blue-800">Background History</h3>
@@ -73,11 +77,14 @@ export default function AboutUs() {
           {/* Our Expertise & Experience */}
           <div className="flex flex-col md:flex-row-reverse items-center md:gap-20">
             {/* Image */}
-            <img
-              src="/image/download.jpg"
-              alt="Our Expertise & Experience"
-              className="w-96 h-96 object-cover rounded-full border-4 shadow-lg"
-            />
+            <Image
+  src="/image/download.jpg"
+  alt="Our Expertise & Experience"
+  width={384}
+  height={384}
+  className="w-96 h-96 object-cover rounded-full border-4 shadow-lg"
+/>
+
 
             {/* Text */}
             <div className="mt-6 md:mt-0 text-justify flex-1 max-w-lg">
@@ -104,17 +111,20 @@ export default function AboutUs() {
           {/* Our Healthcare Impact */}
           <div className="flex flex-col md:flex-row items-center md:space-x-20">
             {/* Image */}
-            <img
-              src="/image/impact.jpg"
-              alt="Our Commitment to Healthcare Transformation"
-              className="w-96 h-96 object-cover rounded-full border-4 shadow-lg"
-            />
+            <Image
+  src="/image/impact.jpg"
+  alt="Our Commitment to Healthcare Transformation"
+  width={384}
+  height={384}
+  className="w-96 h-96 object-cover rounded-full border-4 shadow-lg"
+/>
+
             {/* Text */}
             <div className="mt-6 md:mt-0 text-justify flex-1 max-w-lg">
               <h3 className="text-2xl font-semibold text-blue-800">Our Healthcare Impact</h3>
               <p className="mt-3 text-lg">
                 At High-end Health Solutions, we are committed to strengthening national and global healthcare systems.
-                Our work aligns with WHO's core objectives, focusing on:
+                Our work aligns with WHO&apos;s core objectives, focusing on:
               </p>
               <ul className="mt-3 text-lg list-disc pl-5">
                 <li>Developing multi-sectoral health policies that address key public health challenges</li>

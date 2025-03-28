@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { Phone, Mail, MapPin } from "lucide-react";
+import Image from "next/image";
 
 export default function Footer() {
   return (
@@ -7,7 +8,13 @@ export default function Footer() {
       <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-6">
         {/* Company Info */}
         <div className="flex flex-col items-center md:items-start text-center md:text-left">
-          <img src="/image/highendlogo.png" alt="Company Logo" className="w-20 mb-3" />
+        <Image
+  src="/image/highendlogo.png"
+  alt="Company Logo"
+  width={80}
+  height={80}
+  className="w-20 mb-3"
+/>
           <p>
             High-end Health Solutions Consulting PLC provides expert public health consulting, research, and
             professional training.
