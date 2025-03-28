@@ -7,7 +7,7 @@ import { Mail, MapPin, Phone } from "lucide-react";
 import Image from 'next/image';
 
 export default function Home() {
-  const text = "Welcome to High-end Health Solutions";
+  const text = "Welcome to High-end Health Solutions Cosulting PLC";
   const [showGoToTop, setShowGoToTop] = useState(false);
   const [showModal, setShowModal] = useState(false); // State to manage modal visibility
 
@@ -22,8 +22,8 @@ export default function Home() {
   return (
     <div className="relative min-h-screen bg-gray-100">
       <div
-        className="relative w-full h-[581px] bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url('/image/health2.jpg')" }}
+        className="relative w-full h-[580px] bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: "url('/image/consult3.jpg')" }}
       >
         <div className="absolute inset-0 bg-black bg-opacity-60 flex flex-col items-center justify-center">
           <div className="text-white text-center px-6 max-w-3xl">
@@ -47,7 +47,7 @@ export default function Home() {
             </motion.h1>
 
             <p className="mt-6 text-xl">
-              We provide expert public health consulting, data analysis, and training.
+              We provide expert public health research consulting, data analysis, and training.
             </p>
 
             <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -59,12 +59,7 @@ export default function Home() {
               </a>
 
               {/* Button to trigger the modal */}
-              <button
-                onClick={() => setShowModal(true)}
-                className="bg-blue-600 text-white border-2 border-blue-600 px-8 py-3 rounded-full text-lg font-semibold transition-all hover:bg-white hover:text-blue-600 hover:border-white"
-              >
-                Book Consultation
-              </button>
+              
             </div>
           </div>
 
@@ -103,8 +98,11 @@ export default function Home() {
 
       {/* New Section - "Here Is How We Help" */}
       <div className="py-16 bg-white text-center">
-        <h2 className="text-4xl font-bold text-gray-900">Here Is How We Help</h2>
-        <p className="text-gray-700 mt-4 text-md">
+      <h2 className="text-4xl font-bold text-gray-900">Here Is How We Help</h2>
+
+
+<p className="text-gray-700 mt-4 text-md">
+
           Our specialized services provide healthcare organizations with data-driven insights, digital health solutions, and professional development programs.
         </p>
 
@@ -125,8 +123,8 @@ export default function Home() {
             <FaLaptopMedical className="text-blue-600 text-5xl mx-auto transition-transform duration-300 group-hover:scale-110" />
             <h3 className="text-2xl font-semibold mt-4">Digital Health Solutions</h3>
             <p className="text-gray-700 mt-8">
-              We provide cutting-edge digital health solutions, including custom-built health informatics platforms, AI-driven patient monitoring, and cloud-based data systems 
-              to optimize healthcare operations and patient outcomes.
+              We provide cutting-edge digital health solutions, including custom-built health informatics platforms and cloud-based data systems 
+              to optimize healthcare operations.
             </p>
           </div>
 
