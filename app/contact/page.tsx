@@ -59,7 +59,7 @@ export default function ContactUs() {
                 type={field === "email" ? "email" : "text"}
                 name={field}
                 placeholder={`Your ${field.charAt(0).toUpperCase() + field.slice(1)}`}
-                value={formData[field]}
+                value={formData[field as keyof typeof formData]}
                 onChange={handleChange}
                 className="w-full p-3 border border-gray-300 rounded-lg"
                 required={field !== "phone"}
