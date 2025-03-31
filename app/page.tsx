@@ -231,6 +231,10 @@ export default function Home() {
             <FaArrowUp className="text-xl" />
           </button>
         )}
+         {/* Copyright */}
+      <div className="text-center text-gray-500 text-sm mt-4">
+        &copy; {new Date().getFullYear()} High-end Health Solutions Consulting PLC. All rights reserved.
+      </div>
       </footer>
     </div>
   );
