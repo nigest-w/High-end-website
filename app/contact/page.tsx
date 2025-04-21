@@ -11,34 +11,35 @@ export default function ContactUs() {
   });
 
   const [loading, setLoading] = useState(false);
+  const [status, setStatus] = useState<{ type: 'success' | 'error' | null, message: string | null }>({ type: null, message: null });
 
-  // Handle input changes
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+    setFormData(prev => ({ ...prev, [name]: value }));
   };
-  
 
-  // Handle form submission
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
+    setStatus({ type: null, message: null });
+
     try {
       const response = await fetch("/api/sendEmail", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...formData, recipient: "wnigest@gmail.com" }),
+        body: JSON.stringify(formData),
       });
 
+      const data = await response.json();
+
       if (response.ok) {
-        alert("Thank you for contacting us! We'll get back to you soon.");
+        setStatus({ type: 'success', message: "Thank you! We'll contact you soon." });
         setFormData({ name: "", email: "", phone: "", message: "" });
       } else {
-        alert("Failed to send the message. Please try again later.");
+        setStatus({ type: 'error', message: data.error || "Failed to send message" });
       }
     } catch (error) {
-      console.error("Error sending message:", error);
-      alert("An error occurred while sending your message. Please try again.");
+      setStatus({ type: 'error', message: "Network error. Please try again." });
     } finally {
       setLoading(false);
     }
@@ -52,21 +53,46 @@ export default function ContactUs() {
             Contact Us
           </h2>
 
-          <form onSubmit={handleSubmit} className="space-y-4">
-            {["name", "email", "phone"].map((field, index) => (
-              <input
-                key={index}
-                type={field === "email" ? "email" : "text"}
-                name={field}
-                placeholder={`Your ${field.charAt(0).toUpperCase() + field.slice(1)}`}
-                value={formData[field as keyof typeof formData]}
-                onChange={handleChange}
-                className="w-full p-3 border border-gray-300 rounded-lg"
-                required={field !== "phone"}
-                disabled={loading}
-              />
-            ))}
+          {status.message && (
+            <div className={`mb-4 p-3 rounded-lg text-center ${
+              status.type === 'success' 
+                ? 'bg-green-100 text-green-700' 
+                : 'bg-red-100 text-red-700'
+            }`}>
+              {status.message}
+            </div>
+          )}
 
+          <form onSubmit={handleSubmit} className="space-y-4">
+            <input
+              type="text"
+              name="name"
+              placeholder="Your Name"
+              value={formData.name}
+              onChange={handleChange}
+              className="w-full p-3 border border-gray-300 rounded-lg"
+              required
+              disabled={loading}
+            />
+            <input
+              type="email"
+              name="email"
+              placeholder="Your Email"
+              value={formData.email}
+              onChange={handleChange}
+              className="w-full p-3 border border-gray-300 rounded-lg"
+              required
+              disabled={loading}
+            />
+            <input
+              type="tel"
+              name="phone"
+              placeholder="Your Phone (Optional)"
+              value={formData.phone}
+              onChange={handleChange}
+              className="w-full p-3 border border-gray-300 rounded-lg"
+              disabled={loading}
+            />
             <textarea
               name="message"
               placeholder="Your Message"
@@ -76,14 +102,13 @@ export default function ContactUs() {
               rows={5}
               required
               disabled={loading}
-            ></textarea>
-
+            />
             <button
               type="submit"
               className={`w-full p-3 rounded-lg font-semibold transition ${
                 loading
                   ? "bg-gray-400 cursor-not-allowed"
-                  : "bg-blue-600 text-white hover:bg-blue-500"
+                  : "bg-blue-600 text-white hover:bg-blue-700"
               }`}
               disabled={loading}
             >
@@ -92,7 +117,6 @@ export default function ContactUs() {
           </form>
         </div>
       </div>
-
       <Footer />
     </div>
   );
