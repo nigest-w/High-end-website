@@ -1,4 +1,5 @@
 "use client";
+
 import { useState } from "react";
 import Footer from "../component/Footer";
 
@@ -11,11 +12,16 @@ export default function ContactUs() {
   });
 
   const [loading, setLoading] = useState(false);
-  const [status, setStatus] = useState<{ type: 'success' | 'error' | null, message: string | null }>({ type: null, message: null });
+  const [status, setStatus] = useState<{
+    type: "success" | "error" | null;
+    message: string | null;
+  }>({ type: null, message: null });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -33,13 +39,23 @@ export default function ContactUs() {
       const data = await response.json();
 
       if (response.ok) {
-        setStatus({ type: 'success', message: "Thank you! We'll contact you soon." });
+        setStatus({
+          type: "success",
+          message: "Thank you! We'll contact you soon.",
+        });
         setFormData({ name: "", email: "", phone: "", message: "" });
       } else {
-        setStatus({ type: 'error', message: data.error || "Failed to send message" });
+        setStatus({
+          type: "error",
+          message: data.error || "Failed to send message",
+        });
       }
-    } catch (error) {
-      setStatus({ type: 'error', message: "Network error. Please try again." });
+    } catch (err) {
+      console.error("Submission error:", err);
+      setStatus({
+        type: "error",
+        message: "Network error. Please try again.",
+      });
     } finally {
       setLoading(false);
     }
@@ -54,11 +70,13 @@ export default function ContactUs() {
           </h2>
 
           {status.message && (
-            <div className={`mb-4 p-3 rounded-lg text-center ${
-              status.type === 'success' 
-                ? 'bg-green-100 text-green-700' 
-                : 'bg-red-100 text-red-700'
-            }`}>
+            <div
+              className={`mb-4 p-3 rounded-lg text-center ${
+                status.type === "success"
+                  ? "bg-green-100 text-green-700"
+                  : "bg-red-100 text-red-700"
+              }`}
+            >
               {status.message}
             </div>
           )}

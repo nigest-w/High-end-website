@@ -46,10 +46,19 @@ export async function POST(request: Request) {
 
     return NextResponse.json({ success: true }, { status: 200 });
 
-  } catch (error: any) {
-    console.error('Email error:', error);
+  } catch (error: unknown) {
+    if (error instanceof Error) {
+      console.error('Email error:', error);
+      return NextResponse.json(
+        { error: error.message || "Failed to send email" },
+        { status: 500 }
+      );
+    }
+
+    // fallback in case it's not an Error instance
+    console.error('Unknown error occurred while sending email:', error);
     return NextResponse.json(
-      { error: error.message || "Failed to send email" },
+      { error: "An unexpected error occurred" },
       { status: 500 }
     );
   }
